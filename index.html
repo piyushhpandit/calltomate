@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DentalAI - AI Receptionist for Dental Clinics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light text-slate-900 overflow-x-hidden">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+<!-- Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-50 px-6 py-4 md:px-40">
+<div class="flex items-center gap-2">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-xl">dentistry</span>
+</div>
+<h2 class="text-slate-900 text-xl font-bold leading-tight tracking-tight">DentalAI</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8 items-center">
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors" href="#features">Features</a>
+<a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors" href="#how-it-works">How it Works</a>
+<a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors" href="#pricing">Pricing</a>
+<a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors" href="#faq">FAQ</a>
+</nav>
+<div class="flex gap-3">
+<button class="flex h-10 items-center justify-center rounded-lg bg-primary px-5 text-white text-sm font-bold transition-all hover:bg-primary/90">
+                        Book a Demo
+                    </button>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<!-- Hero Section -->
+<section class="px-6 md:px-40 py-16 md:py-24 bg-white">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-8">
+<div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full w-fit">
+<span class="material-symbols-outlined text-sm">magic_button</span>
+<span class="text-xs font-bold uppercase tracking-wider">Available 24/7/365</span>
+</div>
+<div class="flex flex-col gap-4">
+<h1 class="text-slate-900 text-5xl md:text-6xl font-black leading-[1.1] tracking-tight">
+                                Never Miss Another Patient Call
+                            </h1>
+<p class="text-slate-600 text-lg md:text-xl leading-relaxed max-w-[500px]">
+                                AI Receptionist that answers calls, books appointments, and handles patient questions 24/7 so your staff can focus on patients.
+                            </p>
+</div>
+<div class="flex flex-wrap gap-4">
+<button class="flex h-14 min-w-[200px] items-center justify-center rounded-xl bg-primary px-6 text-white text-base font-bold shadow-lg shadow-primary/20 hover:-translate-y-1 transition-all">
+                                Call the AI Demo
+                            </button>
+<button class="flex h-14 min-w-[200px] items-center justify-center rounded-xl bg-slate-100 px-6 text-slate-900 text-base font-bold hover:bg-slate-200 transition-all">
+                                Book a Demo
+                            </button>
+</div>
+<p class="text-slate-400 text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-base">call</span>
+                            Demo Line: (555) 123-4567
+                        </p>
+</div>
+<div class="relative">
+<div class="aspect-square bg-gradient-to-tr from-primary/20 to-primary/5 rounded-[2rem] overflow-hidden border border-slate-100 shadow-2xl relative" data-alt="Abstract dental clinic interior background">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-4/5 h-3/4 bg-white rounded-2xl shadow-xl p-6 border border-slate-100">
+<div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-4">
+<div class="flex items-center gap-3">
+<div class="size-10 bg-green-500 rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<p class="text-xs text-slate-400 uppercase font-bold tracking-tighter">Live Call</p>
+<p class="text-sm font-bold">New Patient Intake</p>
+</div>
+</div>
+<div class="text-primary font-mono text-sm">01:42</div>
+</div>
+<div class="space-y-4">
+<div class="flex gap-3">
+<div class="size-8 bg-slate-100 rounded-full shrink-0"></div>
+<div class="bg-slate-100 rounded-lg p-3 text-xs text-slate-600">"Hi, I'd like to book a cleaning for next Tuesday afternoon."</div>
+</div>
+<div class="flex gap-3 flex-row-reverse">
+<div class="size-8 bg-primary rounded-full shrink-0 flex items-center justify-center text-white"><span class="material-symbols-outlined text-sm">robot_2</span></div>
+<div class="bg-primary/10 rounded-lg p-3 text-xs text-slate-700">"Of course! We have a 2:30 PM slot with Dr. Smith. Does that work for you?"</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Problem Section -->
+<section class="px-6 md:px-40 py-20 bg-background-light">
+<div class="max-w-[1200px] mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-slate-900 text-3xl md:text-4xl font-bold mb-4">The Cost of Missed Calls</h2>
+<p class="text-slate-600 max-w-2xl mx-auto">Running a busy clinic is hard. Every call you miss is a patient choosing your competitor.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+<span class="material-symbols-outlined text-red-500 text-4xl mb-4">phone_missed</span>
+<h3 class="text-slate-900 font-bold text-lg mb-2">Unanswered Calls</h3>
+<p class="text-slate-500 text-sm leading-relaxed">42% of patients won't call back if you miss their first call.</p>
+</div>
+<div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+<span class="material-symbols-outlined text-red-500 text-4xl mb-4">timer_off</span>
+<h3 class="text-slate-900 font-bold text-lg mb-2">Hanging Up</h3>
+<p class="text-slate-500 text-sm leading-relaxed">Patients hang up after 3 rings. AI answers on the first ring, every time.</p>
+</div>
+<div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+<span class="material-symbols-outlined text-red-500 text-4xl mb-4">payments</span>
+<h3 class="text-slate-900 font-bold text-lg mb-2">Lost Revenue</h3>
+<p class="text-slate-500 text-sm leading-relaxed">The average dental clinic loses $45k/year in missed appointments.</p>
+</div>
+<div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+<span class="material-symbols-outlined text-red-500 text-4xl mb-4">person_off</span>
+<h3 class="text-slate-900 font-bold text-lg mb-2">Staff Burnout</h3>
+<p class="text-slate-500 text-sm leading-relaxed">Constant interruptions prevent your team from serving patients in-office.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Solution Section -->
+<section class="px-6 md:px-40 py-20 bg-white" id="features">
+<div class="max-w-[1200px] mx-auto">
+<div class="flex flex-col lg:flex-row gap-16 items-center">
+<div class="lg:w-1/2">
+<h2 class="text-slate-900 text-4xl font-bold mb-6">The Complete AI Front Desk</h2>
+<p class="text-slate-600 mb-8 text-lg">Our AI doesn't just take messages. It acts as a fully-trained member of your front desk staff.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<div class="size-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<h4 class="font-bold text-slate-900">Answers Instantly</h4>
+<p class="text-sm text-slate-500">Zero wait times, 24/7/365.</p>
+</div>
+<div class="flex flex-col gap-2">
+<div class="size-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<h4 class="font-bold text-slate-900">Books Automatically</h4>
+<p class="text-sm text-slate-500">Direct integration with OpenDental, Dentrix, and more.</p>
+</div>
+<div class="flex flex-col gap-2">
+<div class="size-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined">chat</span>
+</div>
+<h4 class="font-bold text-slate-900">Handles Questions</h4>
+<p class="text-sm text-slate-500">FAQs about insurance, parking, and services.</p>
+</div>
+<div class="flex flex-col gap-2">
+<div class="size-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined">contact_phone</span>
+</div>
+<h4 class="font-bold text-slate-900">Captures Leads</h4>
+<p class="text-sm text-slate-500">Every caller is added to your CRM.</p>
+</div>
+<div class="flex flex-col gap-2">
+<div class="size-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined">sms</span>
+</div>
+<h4 class="font-bold text-slate-900">Auto Confirmations</h4>
+<p class="text-sm text-slate-500">Instant SMS confirmation sent to the patient.</p>
+</div>
+<div class="flex flex-col gap-2">
+<div class="size-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined">monitoring</span>
+</div>
+<h4 class="font-bold text-slate-900">Full Transcription</h4>
+<p class="text-sm text-slate-500">Review every call in your dashboard.</p>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2">
+<div class="bg-slate-900 rounded-3xl p-8 shadow-2xl relative overflow-hidden" data-alt="Dashboard showing patient call statistics and metrics">
+<div class="absolute top-0 right-0 p-4">
+<div class="bg-primary/20 text-primary-light px-3 py-1 rounded text-xs font-mono">LIVE FEED</div>
+</div>
+<div class="space-y-6 pt-6">
+<div class="flex justify-between items-end border-b border-slate-700 pb-4">
+<div>
+<p class="text-slate-400 text-xs uppercase tracking-widest mb-1">Total Calls Handled</p>
+<p class="text-white text-3xl font-black">1,482</p>
+</div>
+<div class="text-green-400 text-xs font-bold">+12% vs last month</div>
+</div>
+<div class="flex justify-between items-end border-b border-slate-700 pb-4">
+<div>
+<p class="text-slate-400 text-xs uppercase tracking-widest mb-1">Appointments Booked</p>
+<p class="text-white text-3xl font-black">238</p>
+</div>
+<div class="text-green-400 text-xs font-bold">+8% vs last month</div>
+</div>
+<div class="space-y-4">
+<p class="text-slate-400 text-xs uppercase tracking-widest">Recent Activity</p>
+<div class="bg-slate-800 rounded-xl p-3 flex items-center gap-3">
+<div class="size-8 bg-primary rounded-full flex items-center justify-center text-white"><span class="material-symbols-outlined text-sm">check</span></div>
+<div>
+<p class="text-white text-sm font-bold">New Appt: Sarah Jenkins</p>
+<p class="text-slate-500 text-xs">Cleaning • Today 3:45 PM</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works Section -->
+<section class="px-6 md:px-40 py-20 bg-background-light" id="how-it-works">
+<div class="max-w-[1200px] mx-auto text-center">
+<h2 class="text-slate-900 text-4xl font-bold mb-16">How It Works</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+<!-- Step 1 -->
+<div class="flex flex-col items-center gap-6 z-10">
+<div class="size-16 bg-white border-2 border-primary rounded-full flex items-center justify-center text-primary text-2xl font-black shadow-lg">1</div>
+<h3 class="text-slate-900 font-bold text-xl">Patient Calls</h3>
+<p class="text-slate-500 max-w-[250px]">Call is answered instantly by the AI, even after hours or when lines are busy.</p>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center gap-6 z-10">
+<div class="size-16 bg-white border-2 border-primary rounded-full flex items-center justify-center text-primary text-2xl font-black shadow-lg">2</div>
+<h3 class="text-slate-900 font-bold text-xl">AI Negotiates</h3>
+<p class="text-slate-500 max-w-[250px]">The AI accesses your real-time calendar and finds a slot that fits the patient.</p>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center gap-6 z-10">
+<div class="size-16 bg-white border-2 border-primary rounded-full flex items-center justify-center text-primary text-2xl font-black shadow-lg">3</div>
+<h3 class="text-slate-900 font-bold text-xl">Confirmed</h3>
+<p class="text-slate-500 max-w-[250px]">The appointment is written directly into your system and the patient gets an SMS.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="px-6 md:px-40 py-20 bg-white" id="pricing">
+<div class="max-w-[1200px] mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-slate-900 text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
+<p class="text-slate-600">Choose the plan that fits your practice volume.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[800px] mx-auto">
+<!-- Starter -->
+<div class="border border-slate-200 rounded-3xl p-10 flex flex-col hover:border-primary transition-colors bg-white">
+<h3 class="text-slate-900 font-bold text-2xl mb-2">Starter</h3>
+<p class="text-slate-500 text-sm mb-6">Perfect for solo practitioners.</p>
+<div class="flex items-baseline gap-1 mb-8">
+<span class="text-4xl font-black">$299</span>
+<span class="text-slate-500">/mo</span>
+</div>
+<ul class="space-y-4 mb-10 flex-1">
+<li class="flex items-center gap-3 text-slate-700">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Up to 100 calls / mo</span>
+</li>
+<li class="flex items-center gap-3 text-slate-700">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Live Calendar Integration</span>
+</li>
+<li class="flex items-center gap-3 text-slate-700">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>SMS Patient Confirmations</span>
+</li>
+<li class="flex items-center gap-3 text-slate-700">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Call Transcriptions</span>
+</li>
+</ul>
+<button class="w-full py-4 rounded-xl bg-slate-900 text-white font-bold hover:bg-slate-800 transition-colors">Start Trial</button>
+</div>
+<!-- Professional -->
+<div class="border-2 border-primary rounded-3xl p-10 flex flex-col relative shadow-xl shadow-primary/5 bg-white">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Most Popular</div>
+<h3 class="text-slate-900 font-bold text-2xl mb-2">Professional</h3>
+<p class="text-slate-500 text-sm mb-6">Designed for growing clinics.</p>
+<div class="flex items-baseline gap-1 mb-8">
+<span class="text-4xl font-black">$499</span>
+<span class="text-slate-500">/mo</span>
+</div>
+<ul class="space-y-4 mb-10 flex-1">
+<li class="flex items-center gap-3 text-slate-700">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Unlimited calls</span>
+</li>
+<li class="flex items-center gap-3 text-slate-700">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Priority AI Training</span>
+</li>
+<li class="flex items-center gap-3 text-slate-700">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Insurance Verification AI</span>
+</li>
+<li class="flex items-center gap-3 text-slate-700">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Custom Voice Personalities</span>
+</li>
+<li class="flex items-center gap-3 text-slate-700">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Dedicated Success Manager</span>
+</li>
+</ul>
+<button class="w-full py-4 rounded-xl bg-primary text-white font-bold hover:bg-primary/90 transition-colors">Start Trial</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="px-6 md:px-40 py-20 bg-background-light">
+<div class="max-w-[1200px] mx-auto">
+<h2 class="text-center text-3xl font-bold mb-16">Trusted by 500+ Dental Practices</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+<div class="flex text-yellow-400 mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="text-slate-600 mb-6 italic">"We were missing about 15 calls every weekend. DentalAI now handles all of them and we come into 5-6 new bookings every Monday morning. It paid for itself in two days."</p>
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-full bg-slate-200" data-alt="Portrait of Dr. Michael Chen"></div>
+<div>
+<p class="font-bold text-slate-900">Dr. Michael Chen</p>
+<p class="text-xs text-slate-500">Bright Smiles Dentistry</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+<div class="flex text-yellow-400 mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="text-slate-600 mb-6 italic">"The AI sounds incredibly natural. Most patients don't even realize they aren't talking to a human until it tells them. My front desk staff is much less stressed now."</p>
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-full bg-slate-200" data-alt="Portrait of Sarah Miller"></div>
+<div>
+<p class="font-bold text-slate-900">Sarah Miller</p>
+<p class="text-xs text-slate-500">Practice Manager, Elite Dental</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+<div class="flex text-yellow-400 mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="text-slate-600 mb-6 italic">"Setup was surprisingly easy. We just forwarded our lines and the AI was ready to go. The integration with our booking software was seamless."</p>
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-full bg-slate-200" data-alt="Portrait of Dr. James Wilson"></div>
+<div>
+<p class="font-bold text-slate-900">Dr. James Wilson</p>
+<p class="text-xs text-slate-500">Main Street Family Dental</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="px-6 md:px-40 py-20 bg-white" id="faq">
+<div class="max-w-[800px] mx-auto">
+<h2 class="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
+<div class="space-y-6">
+<div class="border-b border-slate-200 pb-6">
+<h4 class="font-bold text-lg mb-2 flex justify-between items-center cursor-pointer">
+                                How does it connect to my calendar?
+                                <span class="material-symbols-outlined">expand_more</span>
+</h4>
+<p class="text-slate-500">We integrate directly with most major Dental Practice Management Systems (PMS) via API. It reads your real-time availability and writes the booking back instantly.</p>
+</div>
+<div class="border-b border-slate-200 pb-6">
+<h4 class="font-bold text-lg mb-2 flex justify-between items-center cursor-pointer">
+                                Can the AI handle emergency calls?
+                                <span class="material-symbols-outlined">expand_more</span>
+</h4>
+<p class="text-slate-500">Yes. You can set specific protocols for emergencies, such as immediate transfer to a doctor's mobile line or providing after-hours emergency instructions.</p>
+</div>
+<div class="border-b border-slate-200 pb-6">
+<h4 class="font-bold text-lg mb-2 flex justify-between items-center cursor-pointer">
+                                Does it sound like a robot?
+                                <span class="material-symbols-outlined">expand_more</span>
+</h4>
+<p class="text-slate-500">Not at all. We use advanced low-latency neural voices that have natural inflections and breathing patterns. Most patients find the experience very pleasant.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="px-6 md:px-40 py-20">
+<div class="max-w-[1200px] mx-auto bg-slate-900 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">
+<div class="absolute inset-0 bg-primary/10" style="background-image: radial-gradient(circle at 50% 50%, rgba(17, 82, 212, 0.2) 0%, transparent 70%);"></div>
+<div class="relative z-10 flex flex-col items-center gap-8">
+<h2 class="text-white text-4xl md:text-5xl font-black max-w-2xl">Start Capturing More Appointments Today</h2>
+<p class="text-slate-300 text-lg max-w-xl">Join hundreds of dental clinics saving time and growing revenue with DentalAI.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="h-14 px-10 rounded-xl bg-primary text-white font-bold hover:scale-105 transition-all shadow-xl shadow-primary/20">Get Started Now</button>
+<button class="h-14 px-10 rounded-xl bg-white/10 text-white font-bold hover:bg-white/20 transition-all border border-white/20">Talk to Sales</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="px-6 md:px-40 py-12 bg-white border-t border-slate-100">
+<div class="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-12">
+<div class="col-span-2 md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<div class="size-6 bg-primary rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">dentistry</span>
+</div>
+<h2 class="text-slate-900 text-lg font-bold">DentalAI</h2>
+</div>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">The world's most advanced AI receptionist purpose-built for dental clinics.</p>
+</div>
+<div>
+<h5 class="font-bold text-slate-900 mb-4">Product</h5>
+<ul class="space-y-3 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">Features</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Integrations</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Pricing</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Security</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-slate-900 mb-4">Company</h5>
+<ul class="space-y-3 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">About</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-slate-900 mb-4">Legal</h5>
+<ul class="space-y-3 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">HIPAA Compliance</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-[1200px] mx-auto mt-12 pt-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-slate-400 text-xs">© 2024 DentalAI Technologies Inc. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
