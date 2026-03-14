@@ -74,16 +74,13 @@
                             </p>
 </div>
 <div class="flex flex-wrap gap-4">
-<button class="flex h-14 min-w-[200px] items-center justify-center rounded-xl bg-primary px-6 text-white text-base font-bold shadow-lg shadow-primary/20 hover:-translate-y-1 transition-all">
-                                Call the AI Demo
-                            </button>
-<button class="flex h-14 min-w-[200px] items-center justify-center rounded-xl bg-slate-100 px-6 text-slate-900 text-base font-bold hover:bg-slate-200 transition-all">
-                                Book a Demo
+<button id="ai-receptionist-cta" class="flex h-14 min-w-[240px] items-center justify-center rounded-full bg-primary px-8 text-white text-base font-bold shadow-lg shadow-primary/30 hover:-translate-y-1 hover:shadow-primary/40 active:translate-y-0 transition-all">
+                                Talk to the AI Receptionist
                             </button>
 </div>
 <p class="text-slate-400 text-sm flex items-center gap-2">
 <span class="material-symbols-outlined text-base">call</span>
-                            Demo Line: (555) 123-4567
+                            Demo Line: +1 (234) 567-890
                         </p>
 </div>
 <div class="relative">
@@ -438,6 +435,41 @@
 </div>
 </section>
 </main>
+<!-- AI Receptionist Modal -->
+<div id="ai-receptionist-modal-backdrop" class="fixed inset-0 z-[60] hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm">
+<div id="ai-receptionist-modal" class="bg-white w-[90%] max-w-md rounded-[2rem] shadow-2xl p-8 md:p-10 transform transition-all duration-200 scale-95 opacity-0">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-2">Call the AI Receptionist</p>
+<p class="text-slate-900 text-xl font-bold">Use this number from your phone</p>
+</div>
+<button id="ai-receptionist-modal-close-icon" class="size-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+<div class="mb-6">
+<p class="text-xs font-medium text-slate-500 mb-2">Receptionist Number</p>
+<p id="ai-receptionist-phone-display" class="text-3xl md:text-4xl font-black tracking-wide text-slate-900 select-all break-all">
+                        +1 (234) 567-890
+                    </p>
+</div>
+<div class="space-y-2 mb-6 text-sm text-slate-600 text-left">
+<p class="font-semibold text-slate-700">Instructions</p>
+<p><span class="font-semibold">Step 1:</span> Open your phone dialer</p>
+<p><span class="font-semibold">Step 2:</span> Type the number above</p>
+<p><span class="font-semibold">Step 3:</span> Call the AI receptionist</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-3 mt-6">
+<button id="ai-receptionist-copy-btn" class="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-primary text-white font-semibold py-3 px-5 hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-base">content_copy</span>
+<span>Copy Number</span>
+</button>
+<button id="ai-receptionist-close-btn" class="flex-1 inline-flex items-center justify-center rounded-full bg-slate-100 text-slate-800 font-semibold py-3 px-5 hover:bg-slate-200 transition-colors">
+                        Close
+                    </button>
+</div>
+</div>
+</div>
 <!-- Footer -->
 <footer class="px-6 md:px-40 py-12 bg-white border-t border-slate-100">
 <div class="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-12">
@@ -486,4 +518,125 @@
 </div>
 </footer>
 </div>
+<script>
+    (function () {
+        // Phone number configuration - update this value to change behavior
+        const AI_RECEPTIONIST_PHONE_NUMBER = "+1(605)2738534";
+
+        const ctaButton = document.getElementById("ai-receptionist-cta");
+        const backdrop = document.getElementById("ai-receptionist-modal-backdrop");
+        const modal = document.getElementById("ai-receptionist-modal");
+        const closeBtn = document.getElementById("ai-receptionist-close-btn");
+        const closeIconBtn = document.getElementById("ai-receptionist-modal-close-icon");
+        const copyBtn = document.getElementById("ai-receptionist-copy-btn");
+        const phoneDisplay = document.getElementById("ai-receptionist-phone-display");
+
+        if (phoneDisplay) {
+            // Display a formatted version while keeping raw number in the variable
+            phoneDisplay.textContent = "+1 (234) 567-890";
+        }
+
+        function isMobileDevice() {
+            const ua = (navigator.userAgent || navigator.vendor || window.opera || "").toLowerCase();
+            const isTouchScreen = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+            const isSmallScreen = window.innerWidth < 768;
+
+            return (
+                /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua) ||
+                isTouchScreen ||
+                isSmallScreen
+            );
+        }
+
+        function openModal() {
+            if (!backdrop || !modal) return;
+            backdrop.classList.remove("hidden");
+            backdrop.classList.add("flex");
+
+            // Smooth popup animation
+            requestAnimationFrame(function () {
+                modal.classList.remove("scale-95", "opacity-0");
+                modal.classList.add("scale-100", "opacity-100");
+            });
+        }
+
+        function closeModal() {
+            if (!backdrop || !modal) return;
+            modal.classList.remove("scale-100", "opacity-100");
+            modal.classList.add("scale-95", "opacity-0");
+
+            setTimeout(function () {
+                backdrop.classList.remove("flex");
+                backdrop.classList.add("hidden");
+            }, 200);
+        }
+
+        function handleCtaClick(event) {
+            event.preventDefault();
+
+            if (isMobileDevice()) {
+                // On mobile, directly open the dialer
+                window.location.href = "tel:" + AI_RECEPTIONIST_PHONE_NUMBER;
+            } else {
+                // On desktop, show modal with instructions
+                openModal();
+            }
+        }
+
+        function handleCopy() {
+            const numberToCopy = AI_RECEPTIONIST_PHONE_NUMBER;
+            if (!numberToCopy) return;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(numberToCopy).then(function () {
+                    copyBtn.textContent = "Copied!";
+                    setTimeout(function () {
+                        copyBtn.innerHTML = '<span class="material-symbols-outlined text-base">content_copy</span><span>Copy Number</span>';
+                    }, 1500);
+                }).catch(function () {
+                    fallbackCopy(numberToCopy);
+                });
+            } else {
+                fallbackCopy(numberToCopy);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const tempInput = document.createElement("input");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand("copy");
+            } catch (e) {
+                console.warn("Copy failed", e);
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        if (ctaButton) {
+            ctaButton.addEventListener("click", handleCtaClick);
+        }
+
+        if (closeBtn) {
+            closeBtn.addEventListener("click", closeModal);
+        }
+
+        if (closeIconBtn) {
+            closeIconBtn.addEventListener("click", closeModal);
+        }
+
+        if (backdrop) {
+            backdrop.addEventListener("click", function (event) {
+                if (event.target === backdrop) {
+                    closeModal();
+                }
+            });
+        }
+
+        if (copyBtn) {
+            copyBtn.addEventListener("click", handleCopy);
+        }
+    })();
+</script>
 </body></html>
